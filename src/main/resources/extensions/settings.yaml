@@ -1,0 +1,71 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: wx-config-settings
+spec:
+  forms:
+    - group: basic
+      label: 基础设置
+      formSchema:
+        - $formkit:  attachment
+          name: searchIcon
+          label: 搜索栏旁图标
+          required: true
+        - $formkit:  text
+          name: appid
+          label: APPID
+          help: 请填写微信小程序的APPID
+        - $formkit:  text
+          name: appSecret
+          label: APPSECRET
+          help: 请填写微信小程序的APPSECRET
+        - $formkit:  text
+          name: openid
+          label: 微信号openid
+          help: 请填写微信小程序的openid,用于识别管理员
+    - group: home
+      label: 首页设置
+      formSchema:
+        - $formkit: repeater
+          name: carousel
+          label: 轮播图
+          value: [ ]
+          max: 5
+          min: 1
+          children:
+            - $formkit: attachment
+              name: image
+              id: image
+              label: 图片
+              value: ""
+        - $formkit: repeater
+          name: hot_category
+          label: 热门分类
+          value: [ ]
+          max: 5
+          min: 1
+          children:
+            - $formkit: categorySelect
+              name: category
+              id: category
+              label: 选择分类
+              value: ""
+    - group: about
+      label: 关于我的设置
+      formSchema:
+        - $formkit: attachment
+          name: homeUserAvatar
+          label: 头像
+          required: true
+        - $formkit: text
+          name: homeUserName
+          label: 昵称
+          required: true
+        - $formkit: text
+          name: homeUserDesc
+          label: 个人简介
+          required: true
+        - $formkit: attachment
+          name: homeUserQrCode
+          label: 二维码
+          help: 点击后将跳出二维码
