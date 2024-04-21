@@ -2,7 +2,7 @@ apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
   # The name defines how the plugin is invoked,A unique name
-  name: wxConfig
+  name: TinyTale-config
 spec:
   enabled: true
   requires: ">=2.11.0"
@@ -11,12 +11,12 @@ spec:
     website: https://www.jiewen.run
   logo: logo.png
   # 'homepage' usually links to the GitHub repository of the plugin
-  homepage: https://github.com/jiewenhuang/halo-plugin-wxConfig
+  homepage: https://github.com/jiewenhuang/halo-plugin-TinyTale
   # 'displayName' explains what the plugin does in only a few words
-  settingName: wx-config-settings
-  configMapName: wx-config-configMap
-  displayName: "微信小程序设置"
+  settingName: TinyTale-config-settings
+  configMapName: TinyTale-config-configMap
+  displayName: "TinyTale小程序设置"
   description: "此插件没有任何实质作用，仅为配套微信小程序提供相应配置信息"
   license:
     - name: "GPL-3.0"
-      url: "https://github.com/jiewenhuang/halo-plugin-wxConfig/blob/main/LICENSE"
+      url: "https://github.com/jiewenhuang/halo-plugin-TinyTale/blob/main/LICENSE"

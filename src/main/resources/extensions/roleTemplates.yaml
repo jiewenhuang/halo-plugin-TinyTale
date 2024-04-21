@@ -7,5 +7,7 @@ metadata:
     halo.run/hidden: "true"
     rbac.authorization.halo.run/aggregate-to-authenticated: "true"
 rules:
-  - nonResourceURLs: [ "/apis/api.wx.jiewen.run/tool-options" ]
+  - nonResourceURLs: [ "/apis/api.tinytale.jiewen.run/tool-options" ]
+    verbs: [ "get" ]
+  - nonResourceURLs: [ "/apis/api.tinytale.jiewen.run/verify-openid" ]
     verbs: [ "get" ]

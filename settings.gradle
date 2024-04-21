@@ -3,5 +3,5 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'wx-config'
+rootProject.name = 'TinyTale-config'
 

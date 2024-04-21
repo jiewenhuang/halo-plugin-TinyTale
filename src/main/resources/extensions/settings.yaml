@@ -1,7 +1,7 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: wx-config-settings
+  name: TinyTale-config-settings
 spec:
   forms:
     - group: basic
@@ -11,18 +11,16 @@ spec:
           name: searchIcon
           label: 搜索栏旁图标
           required: true
-        - $formkit:  text
-          name: appid
-          label: APPID
-          help: 请填写微信小程序的APPID
-        - $formkit:  text
-          name: appSecret
-          label: APPSECRET
-          help: 请填写微信小程序的APPSECRET
-        - $formkit:  text
-          name: openid
-          label: 微信号openid
-          help: 请填写微信小程序的openid,用于识别管理员
+        - $formkit:  select
+          name: enableComment
+          label: 是否开启评论
+          value: true
+          options:
+            - label: 开启
+              value: true
+            - label: 关闭
+              value: false
+
     - group: home
       label: 首页设置
       formSchema:
@@ -38,6 +36,34 @@ spec:
               id: image
               label: 图片
               value: ""
+        - $formkit: group
+          name: notice
+          label: 公告
+          children:
+            - $formkit: select
+              name: enableNotice
+              id: enableNotice
+              label: 是否开启公告
+              value: true
+              options:
+                - label: 开启
+                  value: true
+                - label: 关闭
+                  value: false
+            - $formkit: textarea
+              name: noticeContent
+              label: 公告内容
+              value: ""
+              help: "多条以换行区分"
+            - $formkit: select
+              name: noticeType
+              label: 滚动方式
+              value: "horizontal"
+              options:
+                - label: 水平
+                  value: "horizontal"
+                - label: 上下
+                  value: "vertical"
         - $formkit: repeater
           name: hot_category
           label: 热门分类
@@ -65,7 +91,90 @@ spec:
           name: homeUserDesc
           label: 个人简介
           required: true
-        - $formkit: attachment
-          name: homeUserQrCode
-          label: 二维码
-          help: 点击后将跳出二维码
+        - $formkit: text
+          name: homeUserEmail
+          label: 邮箱
+          required: true
+        - $formkit: text
+          name: website
+          label: 网站地址
+          required: true
+        - $formkit: group
+          name: qrcode
+          label: 二维码设置
+          children:
+            - $formkit: attachment
+              name: qrcodeImage
+              label: 二维码图片
+            - $formkit: text
+              name: qrcodeDesc
+              label: 二维码描述
+        - $formkit: group
+          name: social
+          label: 社交账号设置
+          children:
+            - $formkit: repeater
+              name: social_links
+              label: 社交链接
+              children:
+                - $formkit: select
+                  name: icon_code
+                  id: icon_code
+                  label: 图标
+                  value: "github"
+                  validation: "required"
+                  options:
+                    - label: GitHub
+                      value: "github"
+                    - label: Twitter
+                      value: "twitter"
+                    - label: Facebook
+                      value: "facebook"
+                    - label: Instagram
+                      value: "instagram"
+                    - label: LinkedIn
+                      value: "linkedin"
+                    - label: YouTube
+                      value: "youtube"
+                    - label: WeChat
+                      value: "wechat"
+                    - label: QQ
+                      value: "qq"
+                    - label: Weibo
+                      value: "weibo"
+                    - label: Zhihu
+                      value: "zhihu"
+                    - label: Douban
+                      value: "douban"
+                    - label: Telegram
+                      value: "telegram"
+                    - label: Bilibili
+                      value: "bilibili"
+                    - label: RSS
+                      value: "rss"
+                    - label: Email
+                      value: "email"
+                - $formkit: text
+                  name: link
+                  label: 链接
+                  value: ""
+                  validation: "required"
+                  help: "链接地址"
+
+
+    - group: APPSECRET
+      label: APPSECRET
+      formSchema:
+        - $formkit: text
+          name: appid
+          label: APPID
+          help: 请填写微信小程序的APPID
+        - $formkit: text
+          name: appSecret
+          label: APPSECRET
+          help: 请填写微信小程序的APPSECRET
+        - $formkit: text
+          name: openid
+          label: 微信号openid
+          help: 请填写微信小程序的openid,用于识别管理员
+
