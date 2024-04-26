@@ -9,7 +9,7 @@ spec:
   author:
     name: Jiewenhuang
     website: https://www.jiewen.run
-  logo: logo.png
+  logo: TinyTale.jpg
   # 'homepage' usually links to the GitHub repository of the plugin
   homepage: https://github.com/jiewenhuang/halo-plugin-TinyTale
   # 'displayName' explains what the plugin does in only a few words

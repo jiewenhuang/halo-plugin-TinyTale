@@ -1,6 +1,8 @@
-# plugin-starter
+# halo-plugin-TinyTale
 
-Halo 2.0 插件开发快速开始模板。
+此插件，没有任何实质性功能仅为 同名小程序提供配置信息。
+
+# TinyTale 微信小程序 
 
 ## 开发环境
 
