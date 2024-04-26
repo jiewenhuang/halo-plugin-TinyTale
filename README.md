@@ -7,9 +7,10 @@
 ## 详情
 [TinyTale Halo微信小程序内测发布](https://www.jiewen.run/archives/TinyTale)
 ## 预览
-![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A2%84%E8%A7%88%E5%9B%BE.jpg)  
-![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%A2%84%E8%A7%882.jpg)  
-![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%A2%84%E8%A7%883.jpg)
+![image](doc/preview/1.jpg)  
+![image](doc/preview/2.jpg))  
+![image](doc/preview/3.jpg)
+![image](doc/preview/4.png)
 ## 文档
 [TinyTale](https://www.jiewen.run/docs/TinyTale)
 ## 技术栈
