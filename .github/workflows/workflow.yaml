@@ -1,25 +1,13 @@
+
 name: Build Plugin JAR File
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - "**"
-      - "!**.md"
-  release:
-    types:
-      - created
-  pull_request:
-    branches:
-      - main
-    paths:
-      - "**"
-      - "!**.md"
+    branches: [ main, dev ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: debian-12
     steps:
       - uses: actions/checkout@v2
         with:
@@ -48,7 +36,7 @@ jobs:
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/widget/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/console/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - name: Install Frontend Dependencies
@@ -57,12 +45,18 @@ jobs:
       - name: Build with Gradle
         run: |
           # Set the version with tag name when releasing
-          version=${{ github.event.release.tag_name }}
-          version=${version#v}
-          sed -i "s/version=.*-SNAPSHOT$/version=$version/1" gradle.properties
+          if [ $GITHUB_REF_NAME == "main" ]; then
+            version=${{ github.event.release.tag_name }}
+            version=${version#v}
+            sed -i "s/version=.*-SNAPSHOT$/version=$version/1" gradle.properties
+          else
+            build=${{ github.run_number }}
+            echo 当前版本的构建号为: $build
+            sed -i "s/\(version=[0-9]*\.[0-9]*\.[0-9]*\)-SNAPSHOT/\1-build.$build-SNAPSHOT/g" gradle.properties
+          fi
           ./gradlew clean build -x test
       - name: Archive plugin-starter jar
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: plugin-starter
           path: |
@@ -70,7 +64,7 @@ jobs:
           retention-days: 1
 
   github-release:
-    runs-on: ubuntu-latest
+    runs-on: debian-12
     needs: build
     if: github.event_name == 'release'
     steps:
