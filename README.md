@@ -3,6 +3,38 @@
 此插件，没有任何实质性功能仅为 同名小程序提供配置信息。
 
 # TinyTale 微信小程序 
+`TinyTale` 是一款基于 `Halo` 博客系统的微信小程序，可以展示博客文章、图库、瞬间等内容。简洁、美观、易用，是你的博客的最佳搭档。
+## 详情
+[TinyTale Halo微信小程序内测发布](https://www.jiewen.run/archives/TinyTale)
+## 预览
+![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A2%84%E8%A7%88%E5%9B%BE.jpg)  
+![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%A2%84%E8%A7%882.jpg)  
+![image](https://source-gz-img.lanyuku.com/jiewen/2024/04/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%A2%84%E8%A7%883.jpg)
+## 文档
+[TinyTale](https://www.jiewen.run/docs/TinyTale)
+## 技术栈
+- [uni-app](https://uniapp.dcloud.io/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Tuniao UI Uniapp V3](https://vue3.tuniaokj.com/)
+- [iconify](https://icon-sets.iconify.design/)
+- [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [Yarn](https://github.com/yarnpkg/yarn) - 快且稳定
+-
+## 特性
+- [x] 文章列表
+- [x] 文章详情
+- [x] 分类列表
+- [x] 图库展示
+- [x] 瞬间展示
+- [x] 评论展示
+- [x] 发布图库
+- [x] 发布瞬间
+- [x] [配套插件](https://github.com/jiewenhuang/halo-plugin-TinyTale)
+
+## Next
+- [ ] 优化文章样式
+- [ ] 优化代码结构
+- [ ] ......
 
 ## 开发环境
 
